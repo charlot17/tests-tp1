@@ -80,7 +80,7 @@ Util.isPrime = function(n) {
     }
         
 
-     return true
+     return true;
 };
 
 
@@ -94,7 +94,18 @@ Util.isPrime = function(n) {
  * @returns {number}
  */
 Util.sumPrime = function(n) {
+    if (n < 2) {
+        throw 'Unable to compute sumPrime for n < 2';
+    }
+    var cpt = 0;
 
+    for(var i = 2 ; i <= n ; i++){
+        if(Util.isPrime(i) == true){
+            cpt = cpt + i;
+        }
+    }
+
+    return cpt;
 };
 
 /**
