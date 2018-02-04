@@ -181,8 +181,8 @@ describe('sumPrime' , function(){
 
     testCases.forEach(function(testCase){
         it("should return " + testCase.value + " when n = " + testCase.n, function(){
-            var result = Util.sumPrime(testCase.n);
-            expect(result).toEqual(testCase.value);
+            var res = Util.sumPrime(testCase.n);
+            expect(res).toEqual(testCase.value);
         })
     });
 
@@ -193,4 +193,43 @@ describe('sumPrime' , function(){
         }
         expect(f).toThrow('Unable to compute sumPrime for n < 2');
     })
+});
+describe("FizzBuzz", function(){
+    var testCases = [
+        {
+            n : 1,
+            values : [1]
+        },
+        {
+            n : 2,
+            values : [1, 2]
+        },
+        {
+            n : 3,
+            values : [1, 2, "Fizz"]
+        },
+        {
+            n : 4,
+            values : [1, 2, "Fizz", 4]
+        },
+        {
+            n : 15,
+            values : [1, 2, "Fizz", 4, "Buzz", "Fizz", 7, 8, "Fizz", "Buzz", 11, "Fizz", 13, 14, "FizzBuzz"]
+        }
+    ];
+
+    testCases.forEach(function(testCase){
+        it("should return " + testCase.values + " when n = " + testCase.n, function(){
+            var res = Util.fizzBuzz(testCase.n);
+            expect(res).toEqual(testCase.values);
+        })
+    });
+
+    it("should raise an exception when n < 1",function(){
+        var f = function(){
+            Util.fizzBuzz(0);
+        }
+        expect(f).toThrow('Unable to compute fizzBuzz for n < 1');
+    });
+
 });
