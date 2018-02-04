@@ -24,8 +24,8 @@ describe("Factorial", function(){
 
     testCases.forEach(function(testCase){
         it("should returns " + testCase.factorial + " when n = " + testCase.n, function(){
-            var result = Util.factorial(testCase.n);
-            expect(result).toEqual(testCase.factorial);
+            var res = Util.factorial(testCase.n);
+            expect(res).toEqual(testCase.factorial);
         })
     });
 
@@ -50,4 +50,74 @@ describe("Factorial", function(){
         }
         expect(f).toThrow('Unable to compute factorial for n > 100');
     })
+});
+
+describe('Arrangement' , function(){
+
+    var testCases = [
+    {
+        n: 0,
+        r: 0,
+        value: 1
+    },
+    {
+        n: 2,
+        r: 2,
+        value: 2
+    },
+    {
+        n: 3,
+        r: 1,
+        value: 3
+    },
+    {
+        n: 4,
+        r: 4,
+        value: 24
+    }];
+
+    testCases.forEach(function(testCase){
+        it("should return " + testCase.value + " when n = " + testCase.n + " and r = " + testCase.r, function(){
+            var res = Util.arrangement(testCase.n, testCase.r);
+            expect(res).toEqual(testCase.value);
+        })
+    });
+
+    it("should raise an exception when r > n", function(){
+        var f = function(){
+            Util.arrangement(1,2);
+        }
+        expect(f).toThrow('Unable to compute arrangement for r > n');
+    });
+
+   
+});
+
+
+describe('Combination' , function(){
+
+    var testCases = [
+    {
+        n: 0,
+        r: 0,
+        value: 1
+    },
+    {
+        n: 2,
+        r: 2,
+        value: 1
+    },
+    {
+        n: 4,
+        r: 2,
+        value: 6
+    }];
+
+    testCases.forEach(function(testCase){
+        it("should return " + testCase.value + " when n = " + testCase.n + " and r = " + testCase.r, function(){
+            var res = Util.combination(testCase.n, testCase.r);
+            expect(res).toEqual(testCase.value);
+        })
+    });
+
 });

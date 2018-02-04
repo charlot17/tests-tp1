@@ -36,7 +36,7 @@ Util.factorial = function(n) {
 Util.arrangement = function(n, r) {
 
     if (r>n)
-     throw 'Utilisation d\'arrangement : n > r';
+     throw 'Unable to compute arrangement for r > n';
         
     return Util.factorial(n)/Util.factorial(n-r);
 
@@ -50,7 +50,7 @@ Util.arrangement = function(n, r) {
  * @returns {number}
  */
 Util.combination = function(n, r) {
-    
+
     return Util.arrangement(n,r) / Util.factorial(r);
 
 };
@@ -64,7 +64,23 @@ Util.combination = function(n, r) {
  * @returns {boolean}
  */
 Util.isPrime = function(n) {
+    
+    if (n <= 0)
+     throw 'Unable to compute isPrime for n <= 0';
 
+    if (n==1) 
+        return false;
+
+    if (n == 2 || n == 3)
+     return true;
+ 
+    for(var i = 2 ; i < n ; i++){
+        if( n % i == 0 )
+            return false;
+    }
+        
+
+     return true
 };
 
 
